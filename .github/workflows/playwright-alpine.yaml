@@ -1,8 +1,8 @@
-name: playwright-go-release
+name: playwright-alpine-release
 
 on:
   push:
-    tags: "playwright-go--*"
+    tags: "playwright-alpine--*"
 
 jobs:
   release:
@@ -21,23 +21,23 @@ jobs:
       - name: Get Semver tag
         id: semverTag
         run: |
-          tag=${GITHUB_REF_NAME#"playwright-go--"*}
+          tag=${GITHUB_REF_NAME#"playwright-alpine--"*}
           echo "tag=$tag" >> $GITHUB_OUTPUT
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
-          context: "./playwright-go"
+          context: "./playwright-alpine"
           push: true
           tags: |
-            anthonylockplatform/playwright-go:latest
-            anthonylockplatform/playwright-go:${{steps.semverTag.outputs.tag}}
+            anthonylockplatform/playwright-alpine:latest
+            anthonylockplatform/playwright-alpine:${{steps.semverTag.outputs.tag}}
 
       - name: Report Status
         if: always()
         uses: ravsamhq/notify-slack-action@v1
         with:
-          notification_title: "playwright-go-release"
+          notification_title: "playwright-alpine-release"
           status: ${{ job.status }}
           footer: "<{run_url}|View Run>"
         env:
