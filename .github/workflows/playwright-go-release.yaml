@@ -22,7 +22,10 @@ jobs:
         id: semverTag
         run: |
           tag=${GITHUB_REF_NAME%playwright-go-*}
-          echo "::set-output name=tag::$tag"
+          echo "${GITHUB_REF_NAME}"
+          echo "$GITHUB_REF_NAME"
+          echo "$tag"
+          echo "tag=$tag" >> $GITHUB_OUTPUT
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
