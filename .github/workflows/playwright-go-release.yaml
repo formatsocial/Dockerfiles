@@ -5,7 +5,7 @@ on:
     tags: "playwright-go-*"
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
@@ -21,7 +21,7 @@ jobs:
       - name: Get Semver tag
         id: semverTag
         run: |
-          tag=${"${GITHUB_REF_NAME}"%playwright-go-*}
+          tag=${GITHUB_REF_NAME%playwright-go-*}
           echo "::set-output name=tag::$tag"
 
       - name: Build and push Docker image
