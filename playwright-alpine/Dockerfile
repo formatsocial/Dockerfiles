@@ -29,5 +29,3 @@ RUN chmod -R 777 /var
 
 RUN mkdir -p /tmp/data-path
 RUN mkdir -p /tmp/chrome-cache
-
-CMD ["/main" ]
