@@ -1,0 +1,27 @@
+name: playwright-go-release
+
+on:
+  push:
+    tags: "playwright-go:*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+
+      - name: Release new docker version.
+        run: |
+          echo $(printf '%s\n' "${TMP//playwright-go:/}")
+
+      - name: Report Status
+        if: always()
+        uses: ravsamhq/notify-slack-action@v1
+        with:
+          notification_title: "playwright-go-release"
+          status: ${{ job.status }}
+          footer: "<{run_url}|View Run>"
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_TOKEN }}
