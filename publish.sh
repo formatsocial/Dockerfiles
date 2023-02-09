@@ -68,7 +68,7 @@ echo "$NEW_TAG" > "./$FILE/version"
 
 git add "./$FILE/version"
 git commit -m "$FILE new version"
-echo "Tagged with $FILE:$NEW_TAG"
+echo "Tagged with $FILE-$NEW_TAG"
 git tag "$FILE:$NEW_TAG"
 git push --tags
 git push

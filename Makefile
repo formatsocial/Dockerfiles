@@ -15,8 +15,8 @@ build-cicd-cdk-go:
 publish-playwright-go-patch:
 	./publish.sh -v patch -f playwright-go
 
-publish-playwright-go-major:
-	./publish.sh -v major -f playwright-go
+publish-playwright-go-minor:
+	./publish.sh -v minor -f playwright-go
 
 publish-playwright-go-major:
 	./publish.sh -v major -f playwright-go
@@ -25,8 +25,8 @@ publish-playwright-go-major:
 publish-playwright-alpine-patch:
 	./publish.sh -v patch -f playwright-alpine
 
-publish-playwright-alpine-major:
-	./publish.sh -v major -f playwright-alpine
+publish-playwright-alpine-minor:
+	./publish.sh -v minor -f playwright-alpine
 
 publish-playwright-alpine-major:
 	./publish.sh -v major -f playwright-alpine
@@ -35,8 +35,8 @@ publish-playwright-alpine-major:
 publish-playwright-alpine-go-patch:
 	./publish.sh -v patch -f playwright-alpine-go
 
-publish-playwright-alpine-go-major:
-	./publish.sh -v major -f playwright-alpine-go
+publish-playwright-alpine-go-minor:
+	./publish.sh -v minor -f playwright-alpine-go
 
 publish-playwright-alpine-go-major:
 	./publish.sh -v major -f playwright-alpine-go
@@ -45,8 +45,8 @@ publish-playwright-alpine-go-major:
 publish-cicd-cdk-go-patch:
 	./publish.sh -v patch -f cicd-cdk-go
 
-publish-cicd-cdk-go-major:
-	./publish.sh -v major -f cicd-cdk-go
+publish-cicd-cdk-go-minor:
+	./publish.sh -v minor -f cicd-cdk-go
 
 publish-cicd-cdk-go-major:
 	./publish.sh -v major -f cicd-cdk-go
