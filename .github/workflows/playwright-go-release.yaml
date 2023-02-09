@@ -18,6 +18,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Get Semver tag
+        id: semverTag
+        run: |
+          tag=${"${GITHUB_REF_NAME}"%playwright-go-*}
+          echo "::set-output name=tag::$tag"
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
@@ -25,7 +31,7 @@ jobs:
           push: true
           tags: |
             anthonylockplatform/playwright-go:latest
-            "anthonylockplatform/playwright-go:$(printf '%s\n' \"${\"${GITHUB_REF_NAME}\"//playwright-go-/}\")\""
+            anthonylockplatform/playwright-go:${{steps.semverTag.outputs.id}}
 
       - name: Report Status
         if: always()
