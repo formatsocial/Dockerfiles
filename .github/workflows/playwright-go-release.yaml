@@ -25,7 +25,7 @@ jobs:
           push: true
           tags: |
             anthonylockplatform/playwright-go:latest
-            anthonylockplatform/playwright-go:$(printf '%s\n' "${"${GITHUB_REF_NAME}"//playwright-go-/}")
+            "anthonylockplatform/playwright-go:$(printf '%s\n' \"${\"${GITHUB_REF_NAME}\"//playwright-go-/}\")\""
 
       - name: Report Status
         if: always()
