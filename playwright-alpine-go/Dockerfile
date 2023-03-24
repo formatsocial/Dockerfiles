@@ -14,3 +14,5 @@ COPY --from=go-build /go/bin/playwright /
  
 RUN /playwright install; exit 0
 COPY --from=node-build /usr/local/bin/node /root/.cache/ms-playwright-go/${PLAYWRIGHT_GO_CLI_VERSION}/node
+RUN chmod -R 777 /root/
+RUN chmod -R 777 /root
