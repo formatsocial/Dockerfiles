@@ -8,8 +8,8 @@ WORKDIR /downloads
 RUN curl -fsSLO https://download.docker.com/linux/debian/gpg
 RUN curl -fsSL -o awscli_amd64.zip https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.11.13.zip
 RUN curl -fsSL -o awscli_arm64.zip https://awscli.amazonaws.com/awscli-exe-linux-aarch64-2.11.13.zip
-RUN curl -fsSL -o go_amd64.tar.gz "https://go.dev/dl/go1.19.1.linux-amd64.tar.gz"
-RUN curl -fsSL -o go_arm64.tar.gz "https://go.dev/dl/go1.19.1.linux-arm64.tar.gz"
+RUN curl -fsSL -o go_amd64.tar.gz "https://go.dev/dl/go1.22.0.linux-amd64.tar.gz"
+RUN curl -fsSL -o go_arm64.tar.gz "https://go.dev/dl/go1.22.0.linux-arm64.tar.gz"
 
 
 FROM node:18
@@ -28,7 +28,7 @@ RUN useradd -g docker runner
 RUN usermod -a -G sudo runner
 
 # Install CDK.
-RUN npm install -g aws-cdk@2.93.0 typescript
+RUN npm install -g aws-cdk typescript
 
 # Install Go.
 RUN rm -rf /usr/local/go && tar -C /usr/local -xzf /downloads/go.tar.gz
