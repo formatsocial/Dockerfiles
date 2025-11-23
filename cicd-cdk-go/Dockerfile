@@ -8,8 +8,8 @@ WORKDIR /downloads
 RUN curl -fsSLO https://download.docker.com/linux/debian/gpg
 RUN curl -fsSL -o awscli_amd64.zip https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
 RUN curl -fsSL -o awscli_arm64.zip https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip
-RUN curl -fsSL -o go_amd64.tar.gz "https://go.dev/dl/go1.23.3.linux-amd64.tar.gz"
-RUN curl -fsSL -o go_arm64.tar.gz "https://go.dev/dl/go1.23.3.linux-arm64.tar.gz"
+RUN curl -fsSL -o go_amd64.tar.gz "https://go.dev/dl/go1.25.4.linux-amd64.tar.gz"
+RUN curl -fsSL -o go_arm64.tar.gz "https://go.dev/dl/go1.25.4.linux-arm64.tar.gz"
 
 
 FROM node:18
